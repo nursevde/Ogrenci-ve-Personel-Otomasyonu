@@ -1,0 +1,692 @@
+/*****************************************************************************
+**
+**                         SAKARYA ÜNİVERSİTESİ
+**                        FEN EDEBİYAT FAKÜLTESİ
+**                           MATEMATİK BÖLÜMÜ
+**                      PROGRAMLAMAYA GİRİŞ DERSİ
+**                   
+**                                PROJE
+**                    ÖĞRENCİ ADI......: Sevdenur AK
+**                    ÖĞRENCİ NUMARASI.: B180200034
+**                    
+**
+*******************************************************************************/
+
+
+
+#include <iostream>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           #include <iostream>
+#include <fstream>
+#include <cstring>
+#include <cmath>
+
+
+using namespace std;
+
+class ogrenciler{  //Öğrenciler için değişkenleri tanımladım.
+	
+   public:   
+   
+     string TCno;
+     string adi;
+     string soyadi;
+     string ogrencino;            
+     int dogumtarihi;
+     string bolumu;
+     int kayittarihi;
+     
+     int vize[20],kisasinav1[20],kisasinav2[20],odev[20],final[20];
+	 float ortalama[20];
+	 int derssayisi;
+	 string harfnotu[20];
+	 string dersadi[20];
+     
+   
+};
+
+
+
+class personeller{ //Personeller için değişkenleri tanımladım.
+	
+	public:
+		
+		string TC;
+		string personeladi;
+		string personelsoyadi;
+		string unvani;
+		int personelno;
+		int personeldogumtarihi;         
+		string personelbolumu;
+		int isebaslamatarihi;
+	
+				
+};
+
+
+
+int main(int argc, char** argv) {
+	
+		ofstream dosyaolustur("ogrenciler.txt",ios::app); //Öğrencilerin bilgilerini kaydedicek bir txt dosyası oluşturma.
+	    dosyaolustur.close();
+	
+     	ofstream dosyaolustur2("personeller.txt",ios::app); //Personellerin bilgilerini kaydedicek bir txt dosyası oluşturma.
+     	dosyaolustur2.close();
+		
+	
+	do{
+		
+		
+		ogrenciler o; 
+		
+		int secim;
+		
+		cout<<endl;
+		cout<<"Ogrenci kaydi yapmak icin 1'e basiniz..."<<endl;          
+		cout<<"Ogrenci kaydi guncellenek icin 2'e basiniz..."<<endl;   
+		cout<<"Ogrenci kaydi silmek icin 3'e basiniz..."<<endl;         
+		cout<<"Personel kaydi yapmak icin 4'e basiniz..."<<endl;       
+		cout<<"Personel kaydi guncellemek icin 5'e basiniz..."<<endl;    
+		cout<<"Personel kaydi silmek icin 6'e basiniz..."<<endl;     
+		cout<<"Ogrenci sorgulamak icin 7'e basiniz..."<<endl;        
+		cout<<"Kayitli ogrenci listesi cikarmak icin 8'e basiniz..."<<endl;         
+		cout<<"Kayitli personel listesi cikarmak icin 9'e basiniz..."<<endl;          
+		cout<<"Cikis yapmak icin 10'a basiniz..."<<endl;
+		
+		cin>>secim;
+		
+		system("CLS");
+	
+		if(secim==10){
+			
+		    	break;
+		    	
+	    	}
+	    	
+	    	
+		//Öğrenci kaydı yapma.
+	  	else if(secim==1){   
+			
+		    
+		    cout<<endl;
+		    cout<<"Ogrencinin bilgilerini giriniz..."<<endl;
+		    
+		    
+		    cout<<"Ogencinin Tc kimlik numarasi : "<<endl;
+		    cin>>o.TCno;
+		    cout<<"Ogencinin adi : "<<endl;
+		    cin>>o.adi;
+		    cout<<"Ogencinin soyadi : "<<endl;
+		    cin>>o.soyadi;	
+		    cout<<"Ogencinin okul numarasi : "<<endl;
+		    cin>>o.ogrencino;
+		    cout<<"Ogencinin dogum tarihi : "<<endl;
+		    cin>>o.dogumtarihi;
+		    cout<<"Ogencinin bolumu : "<<endl;
+		    cin>>o.bolumu;
+		    cout<<"Ogencinin kayit tarihi : "<<endl;
+		    cin>>o.kayittarihi;
+		    
+		    		    
+		    cout<<"Ogrencinin aldigi ders sayisini giriniz : "<<endl;
+		    cin>>o.derssayisi;
+		    
+		    dosyaolustur.open("ogrenciler.txt",ios::app); //Öğrenciler dosyasını açıp bilgileri dosyaya yazdırma.
+		    
+		    dosyaolustur<<"\n"<<o.TCno<<"\t"<<o.adi<<"\t"<<o.soyadi<<"\t"<<o.ogrencino<<"\t"<<o.dogumtarihi<<"\t"<<o.bolumu<<"\t"<<o.kayittarihi<<"\t"<<o.derssayisi;
+		   
+		    dosyaolustur.close(); //Dosyayı kapatma.
+		
+		    
+		    
+		    for(int i=1;i<=o.derssayisi;i++) //Girilen ders sayısı kadar ders bilgilerini isteme.
+		    {
+		    		
+		    	cout<<i<<". dersin adini giriniz : "<<endl;
+		    	cin>>o.dersadi[i];
+		    	
+		    	
+		    		cout<<o.dersadi[i]<<" dersinin vize notunu giriniz...:";
+		    		cin>>o.vize[i];
+		    		cout<<o.dersadi[i]<<" dersinin 1.kisa sinav notunu giriniz...:";
+		    		cin>>o.kisasinav1[i];
+		    		cout<<o.dersadi[i]<<" dersinin 2.kisa sinav notunu giriniz...:";
+		    		cin>>o.kisasinav2[i];
+		    		cout<<o.dersadi[i]<<" dersinin odev notunu giriniz...:";
+		    		cin>>o.odev[i];
+		    		cout<<o.dersadi[i]<<" dersinin final sinav notunu giriniz...:";
+		    		cin>>o.final[i];
+		    		
+		    		//Girilen notlara göre alınan dersin ortalamasını hesaplama.
+		    		o.ortalama[i] =(float)o.vize[i]*(0.30)+0.05*((float)o.kisasinav1[i]+(float)o.kisasinav2[i])+(float)o.odev[i]*0.10+(float)o.final[i]*0.50; 
+		    		
+		    		cout<<"Ogrencinin ortalamasi : "<<o.ortalama[i]<<endl;
+		    		
+		    		
+		    		dosyaolustur.open("ogrenciler.txt",ios::app); //Öğrenciler dosyasını açıp bilgileri dosyaya yazdırma.
+		    		dosyaolustur<<"\t"<<o.dersadi[i]<<"\t"<<o.vize[i]<<"\t"<<o.kisasinav1[i];
+		            dosyaolustur<<"\t"<<o.kisasinav2[i]<<"\t"<<o.odev[i]<<"\t"<<o.final[i]<<"\t"<<o.ortalama[i];
+		    		dosyaolustur.close();  //Dosyayı kapatma.
+		    		
+		    		
+		    		//Ortalamaya göre harf notu belirlendi ve dosya açılıp yazıldı. Dosya kapatıldı.
+		    		if(o.ortalama[i]<=39.99&&o.ortalama[i]>=0)
+		    		{
+		    		    dosyaolustur.open("ogrenciler.txt",ios::app);
+		                dosyaolustur<<"\tFF";
+		                dosyaolustur.close();
+		    			
+					}
+					
+					else if(o.ortalama[i]<=49.99&&o.ortalama[i]>=40)
+					{
+						dosyaolustur.open("ogrenciler.txt",ios::app);
+		                dosyaolustur<<"\tFD";
+		                dosyaolustur.close();
+					}
+					
+					else if(o.ortalama[i]<=54.99&&o.ortalama[i]>=50)
+					{
+						dosyaolustur.open("ogrenciler.txt",ios::app);
+		                dosyaolustur<<"\tDD";
+		                dosyaolustur.close();
+					}
+					else if(o.ortalama[i]<=65.99&&o.ortalama[i]>=55)
+					{
+						dosyaolustur.open("ogrenciler.txt",ios::app);
+		                dosyaolustur<<"\tDC";
+		                dosyaolustur.close();
+					}
+					else if(o.ortalama[i]<=70.99&&o.ortalama[i]>=66)
+					{
+						dosyaolustur.open("ogrenciler.txt",ios::app);
+		                dosyaolustur<<"\tCC";
+		                dosyaolustur.close();
+					}
+					else if(o.ortalama[i]<=74.99&&o.ortalama[i]>=71)
+					{
+						dosyaolustur.open("ogrenciler.txt",ios::app);
+		                dosyaolustur<<"\tCC";
+		                dosyaolustur.close();
+					}
+					else if(o.ortalama[i]<=82.99&&o.ortalama[i]>=75)
+					{
+						dosyaolustur.open("ogrenciler.txt",ios::app);
+		                dosyaolustur<<"\tBB";
+		                dosyaolustur.close();
+					}
+					else if(o.ortalama[i]<=89.99&&o.ortalama[i]>=83)
+					{
+						dosyaolustur.open("ogrenciler.txt",ios::app);
+		                dosyaolustur<<"\tBA";
+		                dosyaolustur.close();
+					}
+					else if(o.ortalama[i]<=100&&o.ortalama[i]>=90)
+					{
+						dosyaolustur.open("ogrenciler.txt",ios::app);
+		                dosyaolustur<<"\tFF";
+		                dosyaolustur.close();
+					}
+				
+		    	}
+		    	
+		    }
+		    
+		    
+		//Öğrenci güncelleme.
+		else if(secim==2)
+		{
+			string tcguncel; //Güncellenmek istenen kişinin tc kimlik numarası.
+			
+			ifstream dosyaoku("ogrenciler.txt"); //Öğrenciler dosyasını okuma.
+			ofstream dosyaolustur("guncel.txt"); //Güncel adında bir txt dosyası oluşturuldu.
+			
+			cout<<"Guncelleme yapmak istediginiz ogrencinin TC kimlik numarasini giriniz : ";
+			cin>>tcguncel;
+			
+		   	 
+			   string TC1,TC2;
+			
+		       while(!dosyaoku.eof()){
+			   
+			      ogrenciler o1;
+			      
+			      getline(dosyaoku,TC1);
+			      TC2=TC1.substr(0,tcguncel.length());
+			      
+			      if(TC2==tcguncel){
+			      	
+			      	//Öğrencinin bilgilerini yeniden isteme.
+			      	cout<<endl;
+		            cout<<"Ogrencinin bilgilerini giriniz..."<<endl;
+		            
+		            
+		            cout<<"Ogencinin Tc kimlik numarasi : "<<endl;
+		            cin>>o1.TCno;
+		            cout<<"Ogencinin adi : "<<endl;
+		            cin>>o1.adi;
+		            cout<<"Ogencinin soyadi : "<<endl;
+		            cin>>o1.soyadi;
+		            cout<<"Ogencinin okul numarasi : "<<endl;
+		            cin>>o1.ogrencino;
+		            cout<<"Ogencinin dogum tarihi : "<<endl;
+		            cin>>o1.dogumtarihi;
+		            cout<<"Ogencinin bolumu : "<<endl;
+		            cin>>o1.bolumu;
+		            cout<<"Ogencinin kayit tarihi : "<<endl;
+		            cin>>o1.kayittarihi;
+		    
+		    
+                   cout<<"Ogrencinin aldigi ders sayisini giriniz : "<<endl;
+		           cin>>o1.derssayisi;
+		    
+		    
+	        	  dosyaolustur<<"\n"<<o1.TCno<<"\t"<<o1.adi<<" \t"<<o1.soyadi;
+		          dosyaolustur<<"\t"<<o1.ogrencino<<"\t"<<o1.dogumtarihi;
+		          dosyaolustur<<"\t"<<o1.bolumu<<"\t"<<o1.kayittarihi<<"\t"<<o1.derssayisi;
+		       
+		
+		    
+		   int dersadi[o1.derssayisi];
+		    
+		    for(int i=1;i<=o1.derssayisi;i++)
+		    {
+		    	
+		    	cout<<i<<". dersin adini giriniz : "<<endl;
+		    	cin>>o1.dersadi[i];
+		    	
+	
+		    		cout<<o1.dersadi[i]<<" dersinin vize notunu giriniz...:";
+		    		cin>>o1.vize[i];
+		    		cout<<o1.dersadi[i]<<" dersinin 1.kisa sinav notunu giriniz...:";
+		    		cin>>o1.kisasinav1[i];
+		    		cout<<o1.dersadi[i]<<" dersinin 2.kisa sinav notunu giriniz...:";
+		    		cin>>o1.kisasinav2[i];
+		    		cout<<o1.dersadi[i]<<" dersinin odev notunu giriniz...:";
+		    		cin>>o1.odev[i];
+		    		cout<<o1.dersadi[i]<<" dersinin final sinav notunu giriniz...:";
+		    		cin>>o1.final[i];
+		    		
+		    		o1.ortalama[i] =(float)o1.vize[i]*(0.30)+0.05*((float)o1.kisasinav1[i]+(float)o1.kisasinav2[i])+(float)o1.odev[i]*0.10+(float)o1.final[i]*0.50;
+		    		
+		    		cout<<"Ogrencinin ortalamasi : "<<o1.ortalama[i]<<endl;
+		    		
+		    		
+		    		dosyaolustur<<"\t"<<o1.dersadi[i]<<"\t"<<o1.vize[i]<<"\t"<<o1.kisasinav1[i];
+		            dosyaolustur<<"\t"<<o1.kisasinav2[i]<<"\t"<<o1.odev[i]<<"\t"<<o1.final[i]<<"\t"<<o1.ortalama[i];
+		    		    	
+		    		
+		    		if(o1.ortalama[i]<=39.99&&o1.ortalama[i]>=0)
+		    		{
+		    		    
+		                dosyaolustur<<"\tFF  ";
+		               	
+					}
+					
+					else if(o1.ortalama[i]<=49.99&&o1.ortalama[i]>=40)
+					{
+						
+		                dosyaolustur<<"\tFD ";
+		             
+					}
+					
+					else if(o1.ortalama[i]<=54.99&&o1.ortalama[i]>=50)
+					{
+						
+		                dosyaolustur<<"\tDD ";
+		                
+					}
+					else if(o1.ortalama[i]<=65.99&&o1.ortalama[i]>=55)
+					{
+						
+		                dosyaolustur<<"\tDC ";
+		               
+					}
+					else if(o1.ortalama[i]<=70.99&&o1.ortalama[i]>=66)
+					{
+						
+		                dosyaolustur<<"\tCC ";
+		              
+					}
+					else if(o1.ortalama[i]<=74.99&&o1.ortalama[i]>=71)
+					{
+						
+		                dosyaolustur<<"\tCB ";
+		                
+					}
+					else if(o1.ortalama[i]<=82.99&&o1.ortalama[i]>=75)
+					{
+				
+		                dosyaolustur<<"\tBB ";
+		               
+					}
+					else if(o1.ortalama[i]<=89.99&&o1.ortalama[i]>=83)
+					{
+					
+		                dosyaolustur<<"\tBA ";
+		               
+					}
+					else if(o1.ortalama[i]<=100&&o1.ortalama[i]>=90)
+					{
+					
+		                dosyaolustur<<"\tFF ";
+		                
+					}
+				    		
+		    	}
+		
+		  }
+			
+		
+			else{
+				   dosyaolustur<<TC1<<endl;
+				    
+		    	}
+}
+
+	dosyaoku.close(); //Dosya okuma sonlandırıldı.
+    dosyaolustur.close(); //Oluşturulan dosya kapandı.
+			        
+    remove("ogrenciler.txt"); //Öğrenciler dosyası silindi.
+	rename("guncel.txt","ogrenciler.txt"); // Güncel dosyasının adı öğrenciler olarak değiştirildi.
+			
+				
+}     
+	
+	
+	    //Öğrenci silme.
+		else if(secim==3){
+			
+			string silinecektc; //Silinecek öğrencinin TC kimlik numarası.
+			
+			cout<<"Silmek istediginiz ogrencinin TC kimlik numarasini giriniz : ";
+			cin>>silinecektc;
+			
+			ifstream dosyaoku("ogrenciler.txt"); //Öğrenciler dosyasını okuma.
+			
+			ofstream dosyaolustur("guncel.txt"); //Güncel adında yeni bir txt oluşturuldu.
+			
+			string TC1,TC2;
+			
+			while(!dosyaoku.eof()){
+				
+				getline(dosyaoku,TC1);
+				TC2=TC1.substr(0,silinecektc.length());
+				
+				
+				if(TC2==silinecektc){
+					
+					cout<<"Silme islemi gerceklesmistir."<<endl;
+				}
+				
+				else{
+					
+					dosyaolustur<<TC1<<endl;
+					
+				}
+			}
+			
+			
+			dosyaoku.close(); //Dosya okuma sonlandırıldı.
+			dosyaolustur.close(); //Yeni oluşturulan dosya kapandı.
+			
+			remove("ogrenciler.txt"); //Öğrenciler dosyası silindi.
+			rename("guncel.txt","ogrenciler.txt"); //Güncel dosyasının adı öğrenciler olrak değiştirildi.
+		}
+		
+	
+	    //Personel bilgileri.	
+		else if(secim==4){
+			
+			personeller p;
+			
+			cout<<endl;
+		    cout<<"Personelin bilgilerini giriniz..."<<endl;
+		    
+		    
+		    cout<<"Personelin Tc kimlik numarasi : "<<endl;
+		    cin>>p.TC;
+		    cout<<"Personelin adi : "<<endl;
+		    cin>>p.personeladi;
+		    cout<<"Personelin soyadi : "<<endl;
+		    cin>>p.personelsoyadi;
+		    cout<<"Personelin unvani : "<<endl;
+		    cin>>p.unvani;
+		    cout<<"Personel no : "<<endl;
+		    cin>>p.personelno;
+		    cout<<"Personelin dogum tarihi : "<<endl;
+		    cin>>p.personeldogumtarihi;
+		    cout<<"Personelin bolumu : "<<endl;
+		    cin>>p.personelbolumu;
+		    cout<<"Personelin ise baslama tarihi : "<<endl;
+		    cin>>p.isebaslamatarihi;
+		    
+		    dosyaolustur2.open("personeller.txt",ios::app); //Personeller dosyası açıldı ve girilen bilgiler dosyaya yazıldı.
+		    
+		    dosyaolustur2<<p.TC<<"  "<<p.personeladi<<"  "<<p.personelsoyadi;
+		    dosyaolustur2<<" Personelin unvani : "<<p.unvani<<" Personel no : "<<p.personelno;
+		    dosyaolustur2<<" Personelin dogum tarihi: "<<p.personeldogumtarihi<<" Personelin bolumu : "<<p.personelbolumu<<" Personelin ise baslama tarihi : "<<p.isebaslamatarihi<<endl;
+		    dosyaolustur2.close(); //Personeller dosyası kapandı.
+			
+		}
+		
+		
+		
+		    //Personel güncelleme.
+		   else if(secim==5){
+		    	
+		   	
+			
+			string guncelpersonel; //Güncellenmek istenen personelin TC kimlik numarası.
+			
+			cout<<"Guncellemek istediginiz personelin Tc kimlik numarasini giriniz : ";
+			cin>>guncelpersonel;
+			
+			ifstream dosyaoku("personeller.txt"); //Personeller dosyasını okuma.
+			ofstream dosyaolustur("guncel.txt"); //Güncel adında yeni bir dosya oluşturuldu.
+			
+			string tc1,tc2;
+			
+		    while(!dosyaoku.eof())
+		    {
+		    	personeller p1;
+		    	getline(dosyaoku,tc1);
+		    	tc2=tc1.substr(0,guncelpersonel.length());
+		    	
+		    	if(tc2==guncelpersonel){
+				
+		    	
+		   	cout<<"Personelin bilgilerini giriniz..."<<endl;
+		   	
+		    cout<<"Personelin Tc kimlik numarasi : "<<endl;
+		    cin>>p1.TC;
+		    cout<<"Personelin adi : "<<endl;
+		    cin>>p1.personeladi;
+		    cout<<"Personelin soyadi : "<<endl;
+		    cin>>p1.personelsoyadi;
+		    cout<<"Personelin unvani : "<<endl;
+		    cin>>p1.unvani;
+		    cout<<"Personel no : "<<endl;
+		    cin>>p1.personelno;
+		    cout<<"Personelin dogum tarihi : "<<endl;
+		    cin>>p1.personeldogumtarihi;
+		    cout<<"Personelin bolumu : "<<endl;
+		    cin>>p1.personelbolumu;
+		    cout<<"Personelin ise baslama tarihi : "<<endl;
+		    cin>>p1.isebaslamatarihi;
+		    
+		    
+		    dosyaolustur<<p1.TC<<" "<<p1.personeladi<<"  "<<p1.personelsoyadi;
+		    dosyaolustur<<" Personelin unvani : "<<p1.unvani<<" Personel no : "<<p1.personelno;
+		    dosyaolustur<<" Personelin dogum tarihi: "<<p1.personeldogumtarihi<<" Personelin bolumu : "<<p1.personelbolumu<<" Personelin ise baslama tarihi : "<<p1.isebaslamatarihi<<endl;
+		    
+		     break;
+	     	}
+	     	
+	     	else 
+	     	 {
+	     		dosyaolustur<<tc1<<endl;
+			 }
+    	}
+		    
+		   dosyaoku.close(); //Dosya okuma sonlandırıldı.
+		   dosyaolustur.close(); //Oluşturulan yeni dosya kapandı.
+		   
+		   remove("personeller.txt"); //Personeller dosyası silindi.
+		   rename("guncel.txt","personeller.txt"); //Güncel dosyasının adı personeller olarak değiştirildi.
+		  
+}
+		    //Personel silme.
+			else if(secim==6){
+			
+		
+			string personelsil; //Silinecek personelin TC kimlik numarası.
+			
+			cout<<"Silmek istediginiz personelin TC kimlik numarasini giriniz : ";
+			cin>>personelsil;
+			
+			ifstream dosyaoku("personeller.txt"); //Personeller dosyasını okuma.
+			ofstream dosyaolustur2("guncel.txt");//Güncel adında yeni bir dosya oluşturuldu.
+			
+			string tc1,tc2;
+			
+			while(!dosyaoku.eof()){
+				
+				getline(dosyaoku,tc1);
+				tc2=tc1.substr(0,personelsil.length());
+				
+				if(tc2==personelsil){
+				  cout<<"Silme islemi gerceklesmistir."<<endl;
+					
+				}
+				else {
+					dosyaolustur2<<tc1<<endl;
+				}
+			}
+			
+			
+			dosyaoku.close(); //Dosya okuma sonlandırıldı.
+			dosyaolustur2.close(); //Oluşturulan dosya kapandı.
+			
+			remove("personeller.txt"); //Personeller dosyası silindi.
+			rename("guncel.txt","personeller.txt"); //Güncel dosyasının adı perssoneller olarak değiştirildi.
+		}
+		
+	
+		//Öğrenci listeleme.
+		else if(secim==8){
+			
+			ifstream dosyaoku("ogrenciler.txt"); //Öğrenciler dosyası okundu.
+			
+			string bilgi; //Okunan bilgi.
+			
+			while(!dosyaoku.eof()){
+				
+				getline(dosyaoku,bilgi); //Dosya sonuna kadar okundu ve bilgiye aktarıldı.
+				
+				cout<<bilgi<<endl; //Ekrana bütün öğrenciler yazdırıldı.
+			}
+			
+			dosyaoku.close(); //Dosya okuma sonlandırıldı.
+		}
+		
+		//Personel listeleme.
+		else if(secim==9){
+			
+			ifstream dosyaoku("personeller.txt"); //Personeller dosyası okundu.
+			
+			string bilgi2; //Okunan bilgi.
+			
+			while(!dosyaoku.eof()){
+				
+				getline(dosyaoku,bilgi2); //Dosya sonuna kadar okundu ve bilgiye aktarıldı.
+				
+				cout<<bilgi2<<endl; //Ekrana bütün personeller yazdırıldı.
+			}
+			
+			dosyaoku.close(); //Dosya okuma sonlandırıldı.
+		}
+		
+		
+
+//Öğrenci sorgulama.
+    else if(secim==7){
+	
+	  string ogrencisorgula; //Sorgulanmak istenen öğrencinin TC kimlik numarası.
+	
+	
+	cout<<"Sorgulamak istediginiz ogrencinin TC kimlik numarasini giriniz"<<endl;
+	cin>>ogrencisorgula;
+	
+	ifstream dosyaoku("ogrenciler.txt"); //Öğrenciler dosyasını okuma.
+
+	
+	while (!dosyaoku.eof()){
+		
+		dosyaoku>>o.TCno>>o.adi>>o.soyadi>>o.ogrencino>>o.dogumtarihi>>o.bolumu>>o.kayittarihi>>o.derssayisi; //Dosyadakiler bu sırayla okundu.
+		
+		
+		for(int i=1;i<=o.derssayisi;i++)	{
+			
+			
+			dosyaoku>>o.dersadi[i]>>o.vize[i]>>o.kisasinav1[i]>>o.kisasinav2[i]>>o.odev[i]>>o.final[i]>>o.ortalama[i]>>o.harfnotu[i];
+		   
+			
+	 }
+	    if(o.TCno==ogrencisorgula){
+	    	
+	    	cout<<"Ogrencinin bilgileri"<<endl;
+	    	
+	    	cout<<"Ogencinin Tc kimlik numarasi : "<<o.TCno<<endl;
+	    	cout<<"Ogencinin adi : "<<o.adi<<endl;
+		    cout<<"Ogencinin soyadi : "<<o.soyadi<<endl;
+		    cout<<"Ogencinin okul numarasi : "<<o.ogrencino<<endl;
+		    cout<<"Ogencinin dogum tarihi : "<<o.dogumtarihi<<endl;
+		    cout<<"Ogencinin bolumu : "<<o.bolumu<<endl;
+		    cout<<"Ogencinin kayit tarihi : "<<o.kayittarihi<<endl;
+		    
+		    
+		  		
+ 
+		    	for(int i=1;i<=o.derssayisi;i++)	{
+			
+		            
+		    		cout<<"Ders adi : "<<o.dersadi[i]<<endl;
+					cout<<"Vize notu :"<<o.vize[i]<<endl;
+					cout<<"1.kisa sinav notu :"<<o.kisasinav1[i]<<endl;
+		            cout<<"2.kisa sinav notu : "<<o.kisasinav2[i]<<endl;
+					cout<<"Odev notu : "<<o.odev[i]<<endl;
+					cout<<"Final notu : "<<o.final[i]<<endl;
+					cout<<"Ortalama : "<<o.ortalama[i]<<endl;
+					cout<<"Harf notu : "<<o.harfnotu[i]<<endl;
+		           
+		               		
+					}
+
+				     dosyaoku.close();  //Dosya okuma sonlandırıldı.
+				     break;
+		           
+		}    		    
+	    
+		else{
+			
+        	cout<<"Aradiginiz ogrenci sistemde kayitli degildir."<<endl;
+        	break;
+        	
+		    }         
+     }
+	
+}
+       
+    else{
+    	
+        	cout<<"Gecersiz bir islem yaptiniz lutfen tekrar deneyiniz."<<endl;
+        	
+	    }
+	
+		
+	}while(1==1);
+	
+
+	
+	system("PAUSE");
+	return 0;
+}                                                                                                                                                                      
